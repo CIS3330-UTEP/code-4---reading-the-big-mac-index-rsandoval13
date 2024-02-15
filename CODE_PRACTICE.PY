@@ -26,10 +26,10 @@ def get_the_most_expensive_big_mac_price_by_year(year):
     return f"{max_price_row['name']}({max_price_row['iso_a3']}): ${round(max_price_row['dollar_price'], 2)}"
 
 if __name__ == "__main__":
-    
+    pass
 
-    year = '2012'
-    country_code='arg'
+    #year = '2009'
+    #country_code='mex'
     # Example usage:
     #print("Average Big Mac price by year and country:", get_big_mac_price_by_year(year, country_code))
     #print(get_big_mac_price_by_year(2000, 'usa'))
@@ -39,7 +39,7 @@ if __name__ == "__main__":
 
     print("Average Big Mac price by year and country:", get_big_mac_price_by_year(year,country_code))
     print("Average Big Mac price by country:", get_big_mac_price_by_country(country_code))    
-    print("Cheapest Big Mac price by year:", get_the_cheapest_big_mac_price_by_year(2008))
-    print("Most Expensive Big Mac price by year:", get_the_most_expensive_big_mac_price_by_year(2003))
+    print("Cheapest Big Mac price by year:", get_the_cheapest_big_mac_price_by_year(year))
+    print("Most Expensive Big Mac price by year:", get_the_most_expensive_big_mac_price_by_year(year))
     #print(get_the_cheapest_big_mac_price_by_year(2008))
     #print(get_the_most_expensive_big_mac_price_by_year(2003))

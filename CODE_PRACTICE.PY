@@ -1,21 +1,16 @@
 import pandas as pd
-import csv
-
 big_mac_file = './big-mac-full-index.csv'
 df = pd.read_csv(big_mac_file)
 
 def get_big_mac_price_by_year(year,country_code):
     country_code= country_code.upper()
     df_by_date=df[df['date'].str.startswith(str(year))&(df['iso_a3']==country_code)]
-    mean_dollar_price = round(df_by_date['dollar_price'].mean(),2)
-    return mean_dollar_price
-
+    return round(df_by_date['dollar_price'].mean(),2)    
 
 def get_big_mac_price_by_country(country_code):
     country_code=country_code.upper()
     df_by_country=df[df['iso_a3']==country_code]
-    return round(df_by_country['dollar_price'].mean(),2)
-    
+    return round(df_by_country['dollar_price'].mean(),2)    
 
 def get_the_cheapest_big_mac_price_by_year(year):
     min_price_row = df[df['date'].str.startswith(str(year))].nsmallest(1, 'dollar_price').iloc[0]
@@ -27,19 +22,9 @@ def get_the_most_expensive_big_mac_price_by_year(year):
 
 if __name__ == "__main__":
     pass
-
-    #year = '2009'
-    #country_code='mex'
-    # Example usage:
-    #print("Average Big Mac price by year and country:", get_big_mac_price_by_year(year, country_code))
-    #print(get_big_mac_price_by_year(2000, 'usa'))
-    #print(get_big_mac_price_by_country('usa'))
-    
-
-
+    year = '2009'
+    country_code='mex'
     print("Average Big Mac price by year and country:", get_big_mac_price_by_year(year,country_code))
     print("Average Big Mac price by country:", get_big_mac_price_by_country(country_code))    
     print("Cheapest Big Mac price by year:", get_the_cheapest_big_mac_price_by_year(year))
     print("Most Expensive Big Mac price by year:", get_the_most_expensive_big_mac_price_by_year(year))
-    #print(get_the_cheapest_big_mac_price_by_year(2008))
-    #print(get_the_most_expensive_big_mac_price_by_year(2003))
